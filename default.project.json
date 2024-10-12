@@ -1,0 +1,26 @@
+{
+  "name": "rbx",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "Packages": {
+        "$path": "Packages"
+      }
+    },
+
+    "ServerScriptService": {
+      "Server": {
+        "$path": "src/server"
+      }
+    },
+
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "src/client"
+        }
+      }
+    }
+  }
+}
