@@ -1,9 +1,12 @@
 local Cleaner = {}
 Cleaner.__index = Cleaner
 
-function Cleaner.new()
+function Cleaner.new(instance)
 	local self = setmetatable({}, Cleaner)
 	self._Objects = {}
+	if instance then
+		self:BindInstance(instance)
+	end
 	return self
 end
 
@@ -33,6 +36,12 @@ function Cleaner:Destroy()
 		end
 	end
 	self._Objects = {}
+end
+
+function Cleaner:BindInstance(instance: Instance)
+	return self:Add(instance.Destroying:Connect(function()
+		self:Destroy()
+	end))
 end
 
 return Cleaner
